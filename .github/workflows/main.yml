@@ -39,8 +39,8 @@ jobs:
 
       - name: Commit report file to repository
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          git config user.name "pkam-theAmbitious"
+          git config user.email "pakam103@hhu.de"
           git add report/dateinamen.txt
           git commit -m "Update report/dateinamen.txt" || echo "Nothing to commit"
           git push
