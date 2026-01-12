@@ -1,4 +1,4 @@
-name: List files from Testproject
+name: Create file report
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  list-files:
+  generate-report:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,24 +18,29 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: List filenames and write to file
+      - name: Generate report/dateinamen.txt
         run: |
           python - << 'EOF'
           from pathlib import Path
 
-          folder = Path("Testproject")
-          output_file = Path("dateinamen.txt")
+          source_folder = Path("Testproject")
+          report_folder = Path("report")
+          output_file = report_folder / "dateinamen.txt"
+
+          report_folder.mkdir(parents=True, exist_ok=True)
 
           with output_file.open("w", encoding="utf-8") as f:
-              for file in folder.iterdir():
+              for file in source_folder.iterdir():
                   if file.is_file():
                       f.write(file.name + "\n")
 
-          print("dateinamen.txt wurde erstellt")
+          print("report/dateinamen.txt wurde erstellt")
           EOF
 
-      - name: Upload result as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: dateinamen
-          path: dateinamen.txt
+      - name: Commit report file to repository
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add report/dateinamen.txt
+          git commit -m "Update report/dateinamen.txt" || echo "Nothing to commit"
+          git push
