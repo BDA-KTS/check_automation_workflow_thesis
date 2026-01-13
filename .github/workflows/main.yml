@@ -22,23 +22,24 @@ jobs:
           python-version: "3.11"
 
       - name: Generate report/dateinamen.txt
+        shell: python
         run: |
-          python - << 'EOF'
           from pathlib import Path
 
           source_folder = Path("Testproject")
           report_folder = Path("report")
           output_file = report_folder / "dateinamen.txt"
 
+          # Create report folder if it doesn't exist
           report_folder.mkdir(parents=True, exist_ok=True)
 
-          with output_file.open("w", encoding="utf-8") as f:
-              for file in sorted(source_folder.iterdir()):
-                  if file.is_file():
-                      f.write(file.name + "\n")
+          # Write sorted filenames
+          output_file.write_text(
+            "\n".join(sorted(f.name for f in source_folder.iterdir() if f.is_file())),
+            encoding="utf-8"
+          )
 
-          print("report/dateinamen.txt wurde erstellt")
-          EOF
+          print(f"{output_file} wurde erstellt")
 
       - name: Commit report file to repository
         run: |
