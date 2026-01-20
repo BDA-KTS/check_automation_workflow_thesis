@@ -21,6 +21,19 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Check for missing Files
+        shell: python
+        run: |
+          from pathlib import Path
+          
+          required_files=["LICENSE", "README.md", "CITATION.cff", "requirements.txt"]
+          missing_files = []
+
+          for name in required_files:
+            path = repo_root / name
+            if not path.exists() or not path.is_file():
+              missing_files.append(name)
+
       - name: Generate report/dateinamen.txt
         shell: python
         run: |
