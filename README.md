@@ -19,4 +19,4 @@ The output data will be created using a bot from Github, which commits and pushe
 branch protection might occur.
 
 ## References
-This project has benefited from an invited research stay at GESIS - Leibniz Institute for Social Sciences"
+"This project has benefited from an invited research stay at GESIS - Leibniz Institute for Social Sciences"
