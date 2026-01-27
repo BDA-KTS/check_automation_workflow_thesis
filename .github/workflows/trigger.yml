@@ -1,0 +1,23 @@
+name: Trigger Central Workflow
+
+on:
+  push:
+    branches:
+      - main  # Or any branch you want to trigger this workflow on
+
+jobs:
+  trigger-other-repo-workflow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Trigger workflow in another repository
+        run: |
+          REPO_URL="https://github.com/BDA-KTS/check_workflow_central_repo"  # Replace with the target repo URL
+          curl -X POST \
+            https://api.github.com/repos/BDA-KTS/check_workflow_central_repo/dispatches \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -d '{"event_type":"triggered-by-other-repo","client_payload":{"repo_url":"'"$REPO_URL"'","ref":"main"}}'
