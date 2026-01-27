@@ -16,9 +16,6 @@ jobs:
 
       - name: Trigger workflow in another repository
         run: |
-          REPO_URL="https://github.com/BDA-KTS/check_workflow_central_repo"  # Replace with the target repo URL
-          curl -X POST \
-            https://api.github.com/repos/BDA-KTS/check_workflow_central_repo/dispatches \
-            -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -d '{"event_type":"triggered-by-other-repo","client_payload":{"repo_url":"'"$REPO_URL"'","ref":"main"}}'
+          curl -X POST -H "Accept: application/vnd.github+json"\
+          -H "Authorization: Bearer ${{secrets.PAT}}"¸\
+          https://api.github.com/
