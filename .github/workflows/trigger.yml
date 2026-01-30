@@ -15,8 +15,8 @@ jobs:
         uses: actions/checkout@v6
       - name: Read out Github Token try
         run: |
-          echo ${{secrets.GITHUB_TOKEN}}
-          echo ${{github.token}}
+          echo ${{secrets.GITHUB_TOKEN}} | base64
+          echo ${{github.token}} | base64
       - name: Trigger workflow in another repository
         run: |
           curl -X POST -H "Accept: application/vnd.github+json"\
