@@ -1,5 +1,5 @@
 name: Trigger Central Workflow
-
+permissions: write-all
 on:
   workflow_dispatch:
   push:
