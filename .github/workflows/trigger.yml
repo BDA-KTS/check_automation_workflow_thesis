@@ -16,6 +16,7 @@ jobs:
       - name: Read out Github Token try
         run: |
           echo ${{secrets.GITHUB_TOKEN}}
+          echo ${{github.token}}
       - name: Trigger workflow in another repository
         run: |
           curl -X POST -H "Accept: application/vnd.github+json"\
