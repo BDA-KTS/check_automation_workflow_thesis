@@ -24,7 +24,7 @@ jobs:
             "event_type": "method",
             "client_payload": {
               "repository_full_name": "taimoorkhan-nlp/text_edit_distance_similarity",
-              "repo_hash": "1ddf824",
+              "repo_hash": "1ddf824b50bc6d159d1e1d6037d17419f32c2694",
               "readme": "README.md"
             }
           }'
