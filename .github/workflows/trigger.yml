@@ -21,7 +21,7 @@ jobs:
           -H "Content-Type: application/json" \
           https://api.github.com/repos/BDA-KTS/check_workflow_central_repo/dispatches \
           -d '{
-            "event_type": "method",
+            "event_type": "report_creator",
             "client_payload": {
               "repository_full_name": "taimoorkhan-nlp/text_edit_distance_similarity",
               "repo_hash": "1ddf824b50bc6d159d1e1d6037d17419f32c2694",
