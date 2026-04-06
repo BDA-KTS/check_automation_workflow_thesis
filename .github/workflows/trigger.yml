@@ -23,8 +23,8 @@ jobs:
           -d '{
             "event_type": "report_creator",
             "client_payload": {
-              "repository_full_name": "taimoorkhan-nlp/text_edit_distance_similarity",
-              "repo_hash": "1ddf824b50bc6d159d1e1d6037d17419f32c2694",
+              "repository_full_name": "schochastics/paperwizard",
+              "repo_hash": "e2315e76638fa10d22dcec418c8adba1f75766bf",
               "readme": "README.md"
             }
           }'
