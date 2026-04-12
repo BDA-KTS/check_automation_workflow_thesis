@@ -23,8 +23,8 @@ jobs:
           -d '{
             "event_type": "report_creator",
             "client_payload": {
-              "repository_full_name": "schochastics/paperwizard",
-              "repo_hash": "e2315e76638fa10d22dcec418c8adba1f75766bf",
+              "repository_full_name": "YSKartal/reference_disam",
+              "repo_hash": "1ba96c28c0c748f95bfbdc33d95f2553c2fc2640",
               "readme": "README.md"
             }
           }'
